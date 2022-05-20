@@ -1,0 +1,31 @@
+<%= form_for @tournament do |form| %>
+  <% if @tournament.errors.any? %>
+    <%= @tournament.errors.full_messages.each do |message| %>
+      <div><%=message %></div>
+    <% end %>
+  <% end %>
+
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%#= form.fields_for :teams do |teams_form| %>
+      <%# 16.times do |time| %>
+        <%# binding.pry %>
+        <%#= teams_form.select :team_id, options_from_collection_for_select(@teams, :id, :name) %>
+        <%#= teams_form.collection_select :team_id, @teams, :id, :name, selected: 's' %>
+      <%# end %>
+    <%# end %>
+
+    <% 16.times do |time| %>
+      <%= select_tag 'tournament[team_ids][]', options_from_collection_for_select(@teams, :id, :name, @teams[time].id) %>
+    <% end %>
+    <%#= form.collection_select :teams, Team.all, :id, :name, { prompt: true }, { multiple: true} %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

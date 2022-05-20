@@ -1,0 +1,27 @@
+<h1>New Tournament</h1>
+<%= render_breadcrumbs separator: '/' %>
+<%= form_for @tournament do |form| %>
+  <% if @tournament.errors.any? %>
+    <%= @tournament.errors.full_messages.each do |message| %>
+      <div><%=message %></div>
+    <% end %>
+  <% end %>
+
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <% teams = Team.all %>
+    <% Tournament::TEAMS_COUNT.times do |time| %>
+      <%= select_tag 'tournament[team_ids][]', options_from_collection_for_select(teams, :id, :name, teams[time].id) %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', tournaments_path %>

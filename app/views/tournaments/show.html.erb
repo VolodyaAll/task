@@ -1,0 +1,25 @@
+<h1>Tournament <%= @tournament.name %></h1>
+<%= render_breadcrumbs separator: '/' %>
+
+<% if flash.any? %>
+  <% flash.each do |type, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
+<% end %>
+
+<div>
+  <%= link_to "Division #{@tournament.divisions.first.name}", edit_tournament_division_path(@tournament, @tournament.divisions.first) %>
+  <%= link_to "Division #{@tournament.divisions.second.name}", edit_tournament_division_path(@tournament, @tournament.divisions.second) %>
+  <% unless @tournament.playoff.nil? %>
+    <%= link_to "Division #{@tournament.playoff.name}", edit_tournament_division_path(@tournament, @tournament.divisions.second) %>
+  <% end %>
+
+</div>
+
+<% if @tournament.create_a_playoff? %>
+  <%= button_to 'Create Playoff', action: :create_playoff %>
+<% end %>
+
+<%= link_to 'Destroy', tournament_path(@tournament), method: :delete %>

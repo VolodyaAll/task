@@ -1,0 +1,11 @@
+<h1>Teams</h1>
+<%= render_breadcrumbs separator: '/' %>
+<ul>
+  <% @teams.each do |team| %>
+    <li>
+      <%= team.name %>
+      <%= link_to 'Destroy', team_path(team), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to 'New Team', new_team_path %>

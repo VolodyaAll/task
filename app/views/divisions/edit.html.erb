@@ -1,0 +1,13 @@
+<h1>Division <%= @division.name %></h1>
+
+<%= render_breadcrumbs separator: '/' %>
+
+<%= form_for @division, url: tournament_division_url(@division) do |form| %>
+  <%= form.fields_for :games do |game_form| %>
+      <%= game_form.select :winner_id, options_from_collection_for_select([game_form.object.team_one, game_form.object.team_two], :id, :name, game_form.object.winner_id ) %>
+  <% end %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

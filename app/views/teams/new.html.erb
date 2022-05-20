@@ -1,0 +1,18 @@
+<h1>New Team</h1>
+<%= render_breadcrumbs separator: '/' %>
+<%= form_for @team do |form| %>
+  <% if @team.errors.any? %>
+    <%= @team.errors.full_messages.each do |message| %>
+      <div><%=message %></div>
+    <% end %>
+  <% end %>
+
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name, required: true, value: "#{rand(1000)} team"%>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
