@@ -2,7 +2,7 @@ class DivisionsController < ApplicationController
   def edit
     add_breadcrumb "Teams", :teams_path
     add_breadcrumb "Tournaments", :tournaments_path
-    @division = Division.find(params[:tournament_id])
+    @division = Division.find(params[:id])
     tournament = @division.tournament
     add_breadcrumb "Tournament #{tournament.name}", tournament_path(tournament)
   end

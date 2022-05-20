@@ -13,7 +13,7 @@
   <%= link_to "Division #{@tournament.divisions.first.name}", edit_tournament_division_path(@tournament, @tournament.divisions.first) %>
   <%= link_to "Division #{@tournament.divisions.second.name}", edit_tournament_division_path(@tournament, @tournament.divisions.second) %>
   <% unless @tournament.playoff.nil? %>
-    <%= link_to "Division #{@tournament.playoff.name}", edit_tournament_division_path(@tournament, @tournament.divisions.second) %>
+    <%= link_to @tournament.playoff.name, edit_tournament_division_path(@tournament, @tournament.playoff ) %>
   <% end %>
 
 </div>

@@ -18,8 +18,8 @@ class Tournament < ApplicationRecord
   end
 
   def create_a_playoff?
+    # binding.pry
+    # playoffs.size < Math.log2(TEAMS_COUNT) - 1 && divisions.all?(&:all_games_played?)
     playoff.nil? && divisions.all?(&:all_games_played?)
   end
-
-
 end

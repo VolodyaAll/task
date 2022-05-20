@@ -30,7 +30,7 @@ class TournamentsController < ApplicationController
     @playoff = CreatePlayoffService.new(@tournament).call
 
     if @playoff.valid?
-      redirect_to edit_tournament_division_path(@playoff)
+      redirect_to @tournament
     else
       flash[:message] = 'Not all games in divisions are played'
       redirect_to @tournament
