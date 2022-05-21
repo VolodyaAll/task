@@ -1,5 +1,7 @@
-<h1>New Team</h1>
 <%= render_breadcrumbs separator: '/' %>
+
+<h1>New Team</h1>
+
 <%= form_for @team do |form| %>
   <% if @team.errors.any? %>
     <%= @team.errors.full_messages.each do |message| %>

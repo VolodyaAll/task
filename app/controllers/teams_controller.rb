@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
+# Controller class for teams handling
 class TeamsController < ApplicationController
-  add_breadcrumb "Tournaments", :root_path
+  add_breadcrumb 'Tournaments', :root_path
 
   def index
     @teams = Team.all

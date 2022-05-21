@@ -1,22 +1,26 @@
+# frozen_string_literal: true
+
+# Controller class for tournaments handling
 class TournamentsController < ApplicationController
-  add_breadcrumb "Teams", :teams_path
+  add_breadcrumb 'Teams', :teams_path
+  add_breadcrumb 'Tournaments', :root_path
 
   def index
     @tournaments = Tournament.all
   end
 
   def show
-    add_breadcrumb "Tournaments", :root_path
     @tournament = Tournament.find(params[:id])
   end
 
   def new
-    add_breadcrumb "Tournaments", :root_path
     @tournament = Tournament.new
+    @teams = Team.all
   end
 
   def create
     @tournament = CreateTournamentService.new(tournament_params[:name], tournament_params[:team_ids]).call
+    @teams = Team.all
 
     if @tournament.valid?
       redirect_to @tournament
@@ -33,7 +37,6 @@ class TournamentsController < ApplicationController
       redirect_to @tournament
     else
       flash[:message] = 'Not all games in divisions are played'
-      redirect_to @tournament
     end
   end
 
@@ -47,6 +50,6 @@ class TournamentsController < ApplicationController
   private
 
   def tournament_params
-    params.require(:tournament).permit(:name, team_ids: [] )
+    params.require(:tournament).permit(:name, team_ids: [])
   end
 end

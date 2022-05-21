@@ -1,9 +1,14 @@
-<h1>Tournaments</h1>
 <%= render_breadcrumbs separator: '/' %>
+
+<h1>Tournaments</h1>
+
 <ul>
   <% @tournaments.each do |tournament| %>
     <li>
       <%= link_to tournament.name, tournament %>
+      <%= "Status: #{tournament.status}" %>
+      <%= ", Finalist: #{tournament.finalist.name}" unless tournament.finalist.nil? %>
+      <%= ", Winner: #{tournament.winner.name}" unless tournament.winner.nil? %>
     </li>
   <% end %>
 </ul>

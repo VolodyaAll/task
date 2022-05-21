@@ -1,5 +1,6 @@
-source 'https://rubygems.org'
+# frozen_string_literal: true
 
+source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
@@ -30,24 +31,36 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 #
-gem "breadcrumbs_on_rails"
+gem 'breadcrumbs_on_rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'pry'
-  gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'pry-rails'
+end
+
+group :test do
+  gem 'rspec', '3.9'
+  gem 'rspec-rails'
+  gem 'rspec-activemodel-mocks'
+  gem 'shoulda-matchers'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console'
   gem 'listen', '~> 3.0.5'
+  gem 'web-console'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'rubocop', '1.25.1'
+  gem 'rubocop-performance', '1.13.2'
+  gem 'rubocop-rails', '2.13.2'
+  gem 'rubocop-rspec', '2.9.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

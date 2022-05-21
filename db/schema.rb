@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220520085324) do
+ActiveRecord::Schema.define(version: 20220518111258) do
 
   create_table "divisions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
     t.string   "name"
@@ -35,13 +35,6 @@ ActiveRecord::Schema.define(version: 20220520085324) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "playoffs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
-    t.string   "name"
-    t.integer  "tournament_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
   create_table "teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -56,11 +49,12 @@ ActiveRecord::Schema.define(version: 20220520085324) do
   end
 
   create_table "tournaments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3" do |t|
-    t.string   "name",                         null: false
-    t.string   "status",     default: "draft", null: false
+    t.string   "name",                          null: false
+    t.string   "status",      default: "draft", null: false
     t.integer  "winner_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.integer  "finalist_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
 end

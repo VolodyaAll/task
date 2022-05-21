@@ -164,8 +164,8 @@ Layout/HashAlignment:
 
 Layout/ParameterAlignment:
   Description: >-
-                 Align the parameters of a method call if they span more
-                 than one line.
+    Align the parameters of a method call if they span more
+    than one line.
   Enabled: true
   EnforcedStyle: with_fixed_indentation
   # By default, the indentation width from Layout/IndentationWidth is used
@@ -200,13 +200,13 @@ Layout/ClassStructure:
       - prepend
       - extend
   ExpectedOrder:
-      - module_inclusion
-      - constants
-      - public_class_methods
-      - initializer
-      - public_methods
-      - protected_methods
-      - private_methods
+    - module_inclusion
+    - constants
+    - public_class_methods
+    - initializer
+    - public_methods
+    - protected_methods
+    - private_methods
 
 Layout/ClosingParenthesisIndentation:
   Description: 'Checks the indentation of hanging closing parentheses.'
@@ -327,29 +327,29 @@ Layout/ExtraSpacing:
 
 Layout/FirstArrayElementLineBreak:
   Description: >-
-                 Checks for a line break before the first element in a
-                 multi-line array.
+    Checks for a line break before the first element in a
+    multi-line array.
   Enabled: true
   VersionAdded: '0.49'
 
 Layout/FirstHashElementLineBreak:
   Description: >-
-                 Checks for a line break before the first element in a
-                 multi-line hash.
+    Checks for a line break before the first element in a
+    multi-line hash.
   Enabled: true
   VersionAdded: '0.49'
 
 Layout/FirstMethodArgumentLineBreak:
   Description: >-
-                 Checks for a line break before the first argument in a
-                 multi-line method call.
+    Checks for a line break before the first argument in a
+    multi-line method call.
   Enabled: true
   VersionAdded: '0.49'
 
 Layout/FirstMethodParameterLineBreak:
   Description: >-
-                 Checks for a line break before the first parameter in a
-                 multi-line method parameter definition.
+    Checks for a line break before the first parameter in a
+    multi-line method parameter definition.
   # Keeping turned off because otherwise defs become ugly
   Enabled: false
   VersionAdded: '0.49'
@@ -1558,9 +1558,9 @@ Metrics/AbcSize:
   # a Float.
   Max: 23
   Exclude:
-  # Excluding feature helper methods
-  - spec/features/**/*
-  - db/migrate/**/*
+    # Excluding feature helper methods
+    - spec/features/**/*
+    - db/migrate/**/*
 
 Metrics/BlockLength:
   CountComments: false  # count full line comments?
@@ -1667,9 +1667,9 @@ Metrics/MethodLength:
   CountComments: false  # count full line comments?
   Max: 25
   Exclude:
-  # Excluding feature helper methods
-  - spec/features/**/*
-  - db/migrate/**/*
+    # Excluding feature helper methods
+    - spec/features/**/*
+    - db/migrate/**/*
 
 Metrics/ModuleLength:
   CountComments: false  # count full line comments?
@@ -1679,8 +1679,8 @@ Metrics/ParameterLists:
   Max: 4
   CountKeywordArgs: true
   Exclude:
-  # Excluding concepts because TB operations internally explode lots of kwars
-  - app/concepts/**/*
+    # Excluding concepts because TB operations internally explode lots of kwars
+    - app/concepts/**/*
 
 Metrics/PerceivedComplexity:
   Max: 7
@@ -1771,8 +1771,8 @@ Lint/UselessAssignment:
 Lint/Void:
   CheckForMethodsWithNoSideEffects: true
   Exclude:
-  # Excluding specs because false positive on capybara's #select method
-  - spec/**/*
+    # Excluding specs because false positive on capybara's #select method
+    - spec/**/*
 
 #################### Rails #################################
 
@@ -2055,19 +2055,19 @@ RSpec/BeforeAfterAll:
   Description: Check that before/after(:all) isn't being used.
   Enabled: true
   Exclude:
-  - spec/spec_helper.rb
-  - spec/rails_helper.rb
-  - spec/support/**/*.rb
+    - spec/spec_helper.rb
+    - spec/rails_helper.rb
+    - spec/support/**/*.rb
   StyleGuide: http://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/BeforeAfterAll
 
 RSpec/ContextWording:
   Description: "`context` block descriptions should start with 'when', or 'with'."
   Enabled: true
   Prefixes:
-  - when
-  - with
-  - without
-  - given
+    - when
+    - with
+    - without
+    - given
   StyleGuide: http://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/ContextWording
 
 RSpec/DescribeClass:
@@ -2141,9 +2141,9 @@ RSpec/ExampleWithoutDescription:
   Enabled: false
   EnforcedStyle: single_line_only
   SupportedStyles:
-  - always_allow
-  - single_line_only
-  - disallow
+    - always_allow
+    - single_line_only
+    - disallow
   StyleGuide: http://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/ExampleWithoutDescription
 
 RSpec/ExampleWording:
@@ -2161,7 +2161,7 @@ RSpec/ExpectActual:
   Description: Checks for `expect(...)` calls containing literal values.
   Enabled: false
   Exclude:
-  - spec/routing/**/*
+    - spec/routing/**/*
   StyleGuide: http://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/ExpectActual
 
 RSpec/ExpectChange:
@@ -2169,8 +2169,8 @@ RSpec/ExpectChange:
   Enabled: true
   EnforcedStyle: block
   SupportedStyles:
-  - method_call
-  - block
+    - method_call
+    - block
   StyleGuide: http://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/ExpectChange
 
 RSpec/ExpectInHook:
@@ -2205,9 +2205,9 @@ RSpec/HookArgument:
   Enabled: true
   EnforcedStyle: implicit
   SupportedStyles:
-  - implicit
-  - each
-  - example
+    - implicit
+    - each
+    - example
   StyleGuide: http://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/HookArgument
 
 RSpec/ImplicitExpect:
@@ -2215,8 +2215,8 @@ RSpec/ImplicitExpect:
   Enabled: true
   EnforcedStyle: is_expected
   SupportedStyles:
-  - is_expected
-  - should
+    - is_expected
+    - should
   StyleGuide: http://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/ImplicitExpect
 
 RSpec/ImplicitSubject:
@@ -2238,8 +2238,8 @@ RSpec/ItBehavesLike:
   Enabled: true
   EnforcedStyle: it_behaves_like
   SupportedStyles:
-  - it_behaves_like
-  - it_should_behave_like
+    - it_behaves_like
+    - it_should_behave_like
   StyleGuide: http://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/ItBehavesLike
 
 RSpec/LeadingSubject:
@@ -2270,8 +2270,8 @@ RSpec/MessageExpectation:
   Enabled: false
   EnforcedStyle: expect
   SupportedStyles:
-  - allow
-  - expect
+    - allow
+    - expect
   StyleGuide: http://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/MessageExpectation
 
 RSpec/MessageSpies:
@@ -2279,8 +2279,8 @@ RSpec/MessageSpies:
   Enabled: true
   EnforcedStyle: receive
   SupportedStyles:
-  - have_received
-  - receive
+    - have_received
+    - receive
   StyleGuide: http://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/MessageSpies
 
 RSpec/MultipleDescribes:
@@ -2316,8 +2316,8 @@ RSpec/NotToNot:
   Description: Checks for consistent method usage for negating expectations.
   EnforcedStyle: to_not
   SupportedStyles:
-  - not_to
-  - to_not
+    - not_to
+    - to_not
   Enabled: true
   StyleGuide: http://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/NotToNot
 
@@ -2357,8 +2357,8 @@ RSpec/ReturnFromStub:
   Description: Checks for consistent style of stub's return setting.
   EnforcedStyle: and_return
   SupportedStyles:
-  - and_return
-  - block
+    - and_return
+    - block
   StyleGuide: http://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/ReturnFromStub
 
 RSpec/SharedContext:
@@ -2397,8 +2397,8 @@ RSpec/PredicateMatcher:
   Strict: true
   EnforcedStyle: inflected
   SupportedStyles:
-  - inflected
-  - explicit
+    - inflected
+    - explicit
   StyleGuide: http://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/PredicateMatcher
 
 RSpec/VerifiedDoubles:
@@ -2434,6 +2434,6 @@ RSpec/FactoryBot/CreateList:
   Enabled: true
   EnforcedStyle: create_list
   SupportedStyles:
-  - create_list
-  - n_times
+    - create_list
+    - n_times
   StyleGuide: http://www.rubydoc.info/gems/rubocop-rspec/RuboCop/Cop/RSpec/FactoryBot/CreateList

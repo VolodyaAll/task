@@ -1,13 +1,39 @@
-<h1>Division <%= @division.name %></h1>
-
 <%= render_breadcrumbs separator: '/' %>
 
-<%= form_for @division, url: tournament_division_url(@division) do |form| %>
-  <%= form.fields_for :games do |game_form| %>
-      <%= game_form.select :winner_id, options_from_collection_for_select([game_form.object.team_one, game_form.object.team_two], :id, :name, game_form.object.winner_id ) %>
-  <% end %>
+<h1>Division <%= @division.name %></h1>
 
+<div>
+  <%= 'Team one |' %>
+  <%= 'Winner |' %>
+  <%= 'Team two' %>
+</div>
+
+<%= form_for @division, url: tournament_division_url(@division) do |form| %>
+  <ul>
+    <%= form.fields_for :games do |game_form| %>
+      <% game = game_form.object %>
+      <% participants = [game.team_one, game.team_two] %>
+      <% winner_id = game.winner_id || participants[rand(2)].id %>
+      <% options = options_from_collection_for_select(participants, :id, :name, winner_id ) %>
+      <li>
+        <%= game_form.label game.team_one.name %>
+        <%= game_form.select :winner_id, options, {}, disabled: !game.winner.nil? %>
+        <%= game_form.label game.team_two.name %>
+      </li>
+    <% end %>
+  </ul>
+
+  <ul>
+    <% @winners.each do |winner| %>
+      <li>
+        <%= "Team #{winner.name} -- Wins: #{winner.wins}(#{100 * winner.wins / (@division.teams.size - 1)}%)" %>
+      </li>
+    <% end %>
+  </ul>
   <div>
-    <%= form.submit %>
+    <%= link_to 'Generate results', redirect_to: :back unless @division.all_games_played? %>
+  </div>
+  <div>
+    <%= form.submit unless @division.all_games_played? %>
   </div>
 <% end %>
